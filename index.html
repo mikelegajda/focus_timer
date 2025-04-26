@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Focus Timer & To-Do</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Focus Timer</h1>
+
+    <div id="timer">25:00</div> <!-- Default start time -->
+
+    <div class="controls">
+        <div class="preset-buttons" id="preset-buttons">
+            <button data-minutes="5">5 min</button>
+            <button data-minutes="15">15 min</button>
+            <button data-minutes="25">25 min</button>
+            <button data-minutes="50">50 min</button>
+             <button id="show-custom-btn">Custom</button>
+        </div>
+
+        <div class="custom-time-input hidden" id="custom-time-input">
+             <input type="number" id="custom-minutes" placeholder="Minutes" min="1" value="25">
+             <button id="set-custom-time-btn">Set</button>
+        </div>
+
+        <div>
+            <button id="start-pause-btn">Start</button>
+            <button id="reset-btn" class="hidden">Reset</button>
+        </div>
+    </div>
+
+    <div class="todo-section">
+        <h2>📝 To-Do List</h2>
+        <div class="add-task">
+            <input type="text" id="new-task" placeholder="New task">
+            <button id="add-task-btn">Add</button>
+        </div>
+        <ul id="task-list">
+            <!-- To-Do items will be added here -->
+        </ul>
+    </div>
+  </div>
+
+  <script src="js/script.js" defer></script>
+
+</body>
+</html>

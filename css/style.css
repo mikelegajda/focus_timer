@@ -1,0 +1,223 @@
+/* --- Variables --- */
+:root {
+  --primary-color: #4CAF50; /* Green */
+  --secondary-color: #2196F3; /* Blue */
+  --accent-color: #FF9800; /* Orange */
+  --background-light: #f4f7f6;
+  --background-dark: #eef1f0;
+  --text-color: #333;
+  --subtle-text: #666;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --card-background: #fff;
+  --danger-color: #f44336; /* Red */
+}
+
+/* --- General Styles --- */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh;
+  background: var(--background-light);
+  color: var(--text-color);
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in total width/height */
+}
+
+.container {
+  width: 100%;
+  max-width: 600px; /* Limit content width */
+  background: var(--card-background);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px var(--shadow-color);
+  text-align: center;
+  margin-top: 50px; /* Space from top */
+}
+
+h1, h2 {
+  color: var(--subtle-text);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* --- Timer Section --- */
+#timer {
+  font-size: 6em; /* Slightly smaller, still prominent */
+  font-weight: 700;
+  margin: 20px 0 30px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+#timer.running {
+  color: var(--primary-color);
+}
+
+#timer.paused {
+  color: var(--accent-color);
+}
+
+#timer.finished {
+  color: var(--danger-color);
+}
+
+.controls {
+  margin-bottom: 30px;
+}
+
+/* --- Buttons --- */
+.preset-buttons button,
+button {
+  padding: 12px 25px;
+  margin: 5px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px; /* Pill shape */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.preset-buttons button {
+  background-color: var(--background-dark);
+  color: var(--text-color);
+}
+.preset-buttons button:hover {
+    background-color: var(--border-color);
+}
+
+#start-pause-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+#start-pause-btn:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+#reset-btn, #show-custom-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+ #reset-btn:hover, #show-custom-btn:hover {
+   background-color: #1e88e5; /* Darker blue */
+ }
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- Custom Time Input --- */
+.custom-time-input {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.custom-time-input input[type="number"] {
+   width: 80px; /* Fixed width */
+   padding: 10px;
+   border: 1px solid var(--border-color);
+   border-radius: 5px;
+   font-size: 1em;
+   -moz-appearance: textfield; /* Hide arrows in Firefox */
+}
+ .custom-time-input input[type="number"]::-webkit-outer-spin-button,
+ .custom-time-input input[type="number"]::-webkit-inner-spin-button {
+     -webkit-appearance: none; /* Hide arrows in Chrome/Safari */
+     margin: 0;
+ }
+
+/* --- To-Do Section --- */
+.todo-section {
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    text-align: left; /* Align todo items left */
+}
+
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-task input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.add-task button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 5px; /* Less rounded than timer buttons */
+    flex-shrink: 0; /* Don't shrink button */
+}
+ .add-task button:hover {
+    background-color: #1e88e5;
+ }
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#task-list li {
+  background: var(--background-dark);
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+#task-list li span {
+    flex-grow: 1;
+    margin-right: 10px;
+    word-break: break-word; /* Prevent long words from overflowing */
+}
+
+#task-list li span.completed {
+    text-decoration: line-through;
+    color: var(--subtle-text);
+    font-style: italic;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0; /* Don't shrink action buttons */
+}
+
+.todo-actions button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border-radius: 3px;
+    background: none; /* Make buttons transparent */
+    color: var(--subtle-text); /* Use subtle text color for icons */
+    border: 1px solid transparent; /* Add border for hover effect */
+}
+
+.todo-actions button:hover {
+   background-color: var(--border-color);
+   border-color: var(--subtle-text);
+}
+
+/* --- Utility Classes --- */
+.hidden {
+    display: none;
+}
